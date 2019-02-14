@@ -43,7 +43,7 @@ class SpellingSkill(MycroftSkill):
         word = message.data.get("Word")
         self.emitter.once("recognizer_loop:audio_output_start",
                           self.enclosure.mouth_text(word))
-        spelled_word = ', '.join(word).lower()
+        spelled_word = '; '.join(word).lower()
         self.enclosure.deactivate_mouth_events()
         self.speak(spelled_word)
         time.sleep((self.LETTERS_PER_SCREEN + len(word)) * self.SEC_PER_LETTER)
